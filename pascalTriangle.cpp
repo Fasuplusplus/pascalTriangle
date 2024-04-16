@@ -1,4 +1,4 @@
-//imprimir un triangulo de pascal
+// imprimir un triangulo de pascal
 #include <iostream>
 #include <sstream>
 #include <string>
@@ -38,7 +38,7 @@ void drawTriangle() {
     unsigned int lastRow[rows]{};
     unsigned int thisRow[rows]{};
     for (unsigned int i = 1; i <= rows; i++) {
-        for (unsigned int e = 1; e <= i; e++) { //calcular fila
+        for (unsigned int e = 1; e <= i; e++) { // calcular fila
             if (e == 1 || e == i) {
                 thisRow[e] = 1;
             }
@@ -46,15 +46,15 @@ void drawTriangle() {
                 thisRow[e] = (lastRow[e - 1] + lastRow[e]);
             }
         }
-        for (unsigned int e = 1; e <= i; e++) { //imprimir fila con formato pirámide
-            if (e == 1 && e == i) { //caso especial para primera fila donde el primer número es también el último
-                for (unsigned int n = 1; n <= (rows - i); n++) { 
+        for (unsigned int e = 1; e <= i; e++) { // imprimir fila con formato pirámide
+            if (e == 1 && e == i) {             // caso especial para primera fila donde el primer número es también el último
+                for (unsigned int n = 1; n <= (rows - i); n++) {
                     cout << " ";
                 }
                 cout << thisRow[e] << "\n";
             }
             else if (e == 1) {
-                for (unsigned int n = 1; n <= (rows - i); n++) { //agregar tantos espacios como la diferencia entre las filas totales y la fila actual
+                for (unsigned int n = 1; n <= (rows - i); n++) { // agregar tantos espacios como la diferencia entre las filas totales y la fila actual
                     cout << " ";
                 }
                 cout << thisRow[e] << " ";
@@ -66,7 +66,7 @@ void drawTriangle() {
                 cout << thisRow[e] << " ";
             }
         }
-        for (unsigned int e = 1; e <= i; e++) { //mover los valores de la fila actual a lastRow para usarlos en la próxima
+        for (unsigned int e = 1; e <= i; e++) { // mover los valores de la fila actual a lastRow para usarlos en la próxima
             lastRow[e] = thisRow[e];
         }
     }
@@ -75,5 +75,6 @@ void drawTriangle() {
 int main() {
     getRows();
     drawTriangle();
+    system("pause");
     return 0;
 }
